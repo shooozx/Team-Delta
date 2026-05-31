@@ -12,7 +12,7 @@ $username = $_SESSION['loggedInUser'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PERSONAL TASK TRACKER Dashboard</title>
+    <title>Personal Task Tracker Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../frontend/css/page2.css">
 </head>
@@ -20,7 +20,7 @@ $username = $_SESSION['loggedInUser'];
     <nav>
         <div style="display: flex; align-items: center; gap: 15px;">
             <div class="logo">P</div>
-            <h1>PERSONAL TASK TRACKER</h1>
+            <h1>Personal Task Tracker</h1>
         </div>
         <button onclick="logout()">Logout</button>
     </nav>
