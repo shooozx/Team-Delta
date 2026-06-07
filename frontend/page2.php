@@ -12,15 +12,15 @@ $username = $_SESSION['loggedInUser'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Task Tracker Dashboard</title>
+    <title>BalanceBuddy Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../frontend/css/page2.css">
 </head>
 <body>
     <nav>
         <div style="display: flex; align-items: center; gap: 15px;">
-            <div class="logo">P</div>
-            <h1>Personal Task Tracker</h1>
+            <div class="logo">B</div>
+            <h1>BalanceBuddy</h1>
         </div>
         <button onclick="logout()">Logout</button>
     </nav>

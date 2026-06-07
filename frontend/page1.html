@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Task Tracker</title>
+    <title>BalanceBuddy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/page1.css">
 </head>
@@ -13,8 +13,8 @@
         <!-- Login Form -->
         <div id="loginContainer" class="container">
             <div class="logo-section">
-                <div class="logo">P</div>
-                <h1>Personal Task Tracker</h1>
+                <div class="logo">B</div>
+                <h1>BalanceBuddy</h1>
                 <p class="tagline">Your Path to Productivity</p>
             </div>
             <form id="loginForm" onsubmit="handleLogin(event)">
@@ -33,21 +33,14 @@
             <div class="toggle-text">
                 Don't have an account? <a onclick="toggleForms()">Sign Up</a>
             </div>
-            <div class="social-links">
-                <div class="social-title">Follow Us</div>
-                <a href="https://facebook.com" target="_blank" title="Facebook">f</a>
-                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏</a>
-                <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
-                <a href="https://github.com" target="_blank" title="GitHub">⚙️</a>
-            </div>
         </div>
 
         <!-- Signup Form -->
         <div id="signupContainer" class="container">
             <div class="logo-section">
-                <div class="logo">P</div>
+                <div class="logo">B</div>
                 <h1>Create Account</h1>
-                <p class="tagline">Join Personal Task Tracker Today</p>
+                <p class="tagline">Join BalanceBuddy Today</p>
             </div>
             <form id="signupForm" onsubmit="handleSignup(event)">
                 <div class="form-group">
@@ -65,25 +58,6 @@
                 <div class="form-group">
                     <label for="surname">Surname</label>
                     <input type="text" id="surname" placeholder="Your surname" required>
-                </div>
-                <div class="form-group">
-                    <label for="strand">Program</label>
-                    <select id="strand" required onchange="showProgramInfo()">
-                        <option value="">Select your program</option>
-                        <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
-                        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
-                        <option value="Bachelor of Science in Engineering">Bachelor of Science in Engineering</option>
-                        <option value="Bachelor of Business Administration">Bachelor of Business Administration</option>
-                        <option value="Bachelor of Accountancy">Bachelor of Accountancy</option>
-                        <option value="Bachelor of Science in Nursing">Bachelor of Science in Nursing</option>
-                        <option value="Bachelor of Arts in Education">Bachelor of Arts in Education</option>
-                        <option value="Bachelor of Science in Psychology">Bachelor of Science in Psychology</option>
-                        <option value="Bachelor of Architecture">Bachelor of Architecture</option>
-                        <option value="Bachelor of Arts in Communication">Bachelor of Arts in Communication</option>
-                    </select>
-                </div>
-                <div id="programInfo" class="program-info" style="display: none;">
-                    <p id="programDescription" style="font-size: 13px; color: #666; background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: -10px; margin-bottom: 15px; border-left: 4px solid #1a1a1a;"></p>
                 </div>
                 <div class="form-group">
                     <label for="signupPassword">Password</label>
