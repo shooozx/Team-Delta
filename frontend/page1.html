@@ -1,82 +1,105 @@
-<!-- BalanceBuddy - User Authentication and Login Interface -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BalanceBuddy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/page1.css">
 </head>
+
 <body>
-    <div class="wrapper">
-        <!-- Login Form -->
-        <div id="loginContainer" class="container">
-            <div class="logo-section">
-                <div class="logo">B</div>
-                <h1>BalanceBuddy</h1>
-                <p class="tagline">Your Path to Productivity</p>
-            </div>
-            <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                </div>
-                <div class="button-group">
-                    <button type="submit">Log In</button>
-                </div>
-            </form>
-            <div class="toggle-text">
-                Don't have an account? <a onclick="toggleForms()">Sign Up</a>
-            </div>
+
+<div class="wrapper">
+
+    <!-- LOGIN -->
+    <div id="loginContainer" class="container">
+
+        <div class="logo-section">
+            <div class="logo">B</div>
+            <h1>BalanceBuddy</h1>
+            <p class="tagline">Your Path to Productivity</p>
         </div>
 
-        <!-- Signup Form -->
-        <div id="signupContainer" class="container">
-            <div class="logo-section">
-                <div class="logo">B</div>
-                <h1>Create Account</h1>
-                <p class="tagline">Join BalanceBuddy Today</p>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
             </div>
-            <form id="signupForm" onsubmit="handleSignup(event)">
-                <div class="form-group">
-                    <label for="signupUsername">Username</label>
-                    <input type="text" id="signupUsername" placeholder="Choose a username" required>
-                </div>
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" placeholder="Your first name" required>
-                </div>
-                <div class="form-group">
-                    <label for="middleName">Middle Name</label>
-                    <input type="text" id="middleName" placeholder="Your middle name">
-                </div>
-                <div class="form-group">
-                    <label for="surname">Surname</label>
-                    <input type="text" id="surname" placeholder="Your surname" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword">Password</label>
-                    <input type="password" id="signupPassword" placeholder="Create a password (min. 8 characters)" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-                </div>
-                <div class="button-group">
-                    <button type="submit">Create Account</button>
-                </div>
-            </form>
-            <div class="toggle-text">
-                Already have an account? <a onclick="toggleForms()">Log In</a>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
             </div>
+
+            <div class="button-group">
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+
+        <div class="toggle-text">
+            Don't have an account?
+            <a onclick="toggleForms()">Sign Up</a>
         </div>
+
     </div>
 
-    <script src="js/page1.js"></script>
+    <!-- SIGNUP -->
+    <div id="signupContainer" class="container">
+
+        <div class="logo-section">
+            <div class="logo">B</div>
+            <h1>Create Account</h1>
+            <p class="tagline">Join BalanceBuddy Today</p>
+        </div>
+
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="signupUsername" placeholder="Choose a username" required>
+            </div>
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" id="firstName" placeholder="Your first name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Middle Name</label>
+                <input type="text" id="middleName" placeholder="Your middle name">
+            </div>
+
+            <div class="form-group">
+                <label>Surname</label>
+                <input type="text" id="surname" placeholder="Your surname" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password (min 8 characters)" required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">Create Account</button>
+            </div>
+        </form>
+
+        <div class="toggle-text">
+            Already have an account?
+            <a onclick="toggleForms()">Log In</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/page1.js"></script>
+
 </body>
 </html>
