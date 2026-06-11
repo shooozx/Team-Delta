@@ -1,0 +1,260 @@
+:root {
+  --bg: #0b0c10;
+  --card: rgba(255, 255, 255, 0.06);
+  --text: #e8e8e8;
+  --muted: #a1a1aa;
+  --primary: #7c5cff;
+  --primary2: #00d4ff;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  color: var(--text);
+  background: radial-gradient(circle at top, #1a1f2e, #0b0c10 60%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* glowing background */
+body::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--primary), transparent 60%);
+  filter: blur(120px);
+  top: -200px;
+  left: -200px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.7s ease-out;
+}
+
+.container {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 56px 44px;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 28px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 14px;
+  transition: 0.25s ease;
+  outline: none;
+}
+
+input::placeholder {
+  color: #666;
+}
+
+input:focus,
+select:focus {
+  border-color: rgba(124, 92, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.button-group {
+  margin-top: 28px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.25);
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(124, 92, 255, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#signupContainer {
+  display: none;
+  animation: fadeUp 0.5s ease;
+}
+
+#signupContainer.active {
+  display: block;
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.toggle-text a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.toggle-text a:hover {
+  color: var(--primary2);
+}
+
+.social-links {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.social-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777;
+  margin-bottom: 14px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  margin: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: 0.25s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  border-color: transparent;
+  color: white;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 44px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 14px;
+  }
+
+  .container {
+    padding: 36px 22px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input,
+  button {
+    font-size: 15px;
+  }
+}
