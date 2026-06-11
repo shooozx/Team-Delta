@@ -13,6 +13,8 @@ function showSection(sectionId, event) {
     if (event && event.target) {
         event.target.classList.add("active");
     }
+    if (sectionId === 'analytics-dashboard') initAnalyticsCharts();
+    
 }
 
 function logout() {
@@ -235,6 +237,60 @@ function addEvent(event) {
             }
         });
 }
+// Feature 1: Drag and Drop System para sa Visual Board
+let draggedElement = null;
+function allowDrop(ev) { ev.preventDefault(); }
+function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+function drop(ev, targetStatus) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const card = document.getElementById(data);
+    let container = ev.target.querySelector('.kanban-cards-container') || ev.target.closest('.kanban-column')?.querySelector('.kanban-cards-container');
+    
+    if (container && card) {
+        container.appendChild(card);
+        if (targetStatus === 'todo') card.style.borderLeftColor = '#e53935';
+        if (targetStatus === 'inprogress') card.style.borderLeftColor = '#f57c00';
+        if (targetStatus === 'done') card.style.borderLeftColor = '#2e7d32';
+    }
+}
+
+// Feature 2: Chart.js Initializer para sa Analytics
+let trendChartInstance = null, priorityChartInstance = null;
+function initAnalyticsCharts() {
+    if (trendChartInstance) trendChartInstance.destroy();
+    if (priorityChartInstance) priorityChartInstance.destroy();
+
+    const trendCtx = document.getElementById('trendChart')?.getContext('2d');
+    const priorityCtx = document.getElementById('priorityChart')?.getContext('2d');
+
+    if (trendCtx) {
+        trendChartInstance = new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{ label: 'Tasks Done', data: [5, 12, 8, 15, 20, 24], borderColor: '#1a1a1a', fill: false }]
+            }
+        });
+    }
+
+    if (priorityCtx) {
+        priorityChartInstance = new Chart(priorityCtx, {
+            type: 'pie',
+            data: {
+                labels: ['High', 'Medium', 'Low'],
+                datasets: [{ data: [12, 7, 5], backgroundColor: ['#c62828', '#f57c00', '#2e7d32'] }]
+            }
+        });
+    }
+}
+
+// Feature 3: Mock Export Reports
+function exportReport(type) {
+    alert(`Exporting BalanceBuddy productivity reports as ${type.toUpperCase()}... Successful!`);
+}
+
+
 
 /* ================= INIT ================= */
 
