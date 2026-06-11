@@ -12,15 +12,15 @@ $username = $_SESSION['loggedInUser'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Task Tracker Dashboard</title>
+    <title>BalanceBuddy Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../frontend/css/page2.css">
 </head>
 <body>
     <nav>
         <div style="display: flex; align-items: center; gap: 15px;">
-            <div class="logo">P</div>
-            <h1>Personal Task Tracker</h1>
+            <div class="logo">B</div>
+            <h1>BalanceBuddy</h1>
         </div>
         <button onclick="logout()">Logout</button>
     </nav>
@@ -35,6 +35,9 @@ $username = $_SESSION['loggedInUser'];
                 <button class="dashboard-item" onclick="showSection('priority-list', event)">⚡ Priority List</button>
                 <button class="dashboard-item" onclick="showSection('task-tracker', event)">📊 Progress</button>
                 <button class="dashboard-item" onclick="showSection('calendar', event)">📅 Calendar</button>
+
+                <button class="dashboard-item" onclick="showSection('visual-board', event)">📋 Visual Task Board</button>
+                <button class="dashboard-item" onclick="showSection('analytics-dashboard', event)">📈 Analytics & Reports</button>
             </div>
         </div>
 
@@ -152,6 +155,68 @@ $username = $_SESSION['loggedInUser'];
             </div>
         </div>
     </div>
+
+<div id="visual-board" class="section" style="display: none;">
+    <h2>📋 Visual Task Board</h2>
+    <p style="color: #666; margin-bottom: 20px;">Kargahin at ilipat ang mga gawain para baguhin ang kanilang status sa workflow.</p>
+    
+    <div class="kanban-wrapper">
+        <div class="kanban-column" id="todo-col" ondragover="allowDrop(event)" ondrop="drop(event, 'todo')">
+            <h3>To Do</h3>
+            <div class="kanban-cards-container" id="todo-cards">
+                <div class="task-card" id="task-sample" draggable="true" ondragstart="drag(event)">
+                    <strong>Ayusin ang Frontend Architecture</strong>
+                    <p style="font-size: 11px; color: #888; margin-top: 5px;">Priority: High</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="kanban-column" id="progress-col" ondragover="allowDrop(event)" ondrop="drop(event, 'inprogress')">
+            <h3>In Progress</h3>
+            <div class="kanban-cards-container" id="progress-cards"></div>
+        </div>
+
+        <div class="kanban-column" id="done-col" ondragover="allowDrop(event)" ondrop="drop(event, 'done')">
+            <h3>Done</h3>
+            <div class="kanban-cards-container" id="done-cards"></div>
+        </div>
+    </div>
+</div>
+
+<div id="analytics-dashboard" class="section" style="display: none;">
+    <div class="analytics-header">
+        <div>
+            <h2>📈 Interactive Analytics Dashboard</h2>
+            <p style="color: #666; margin-top: 5px;">Multidimensional insights and business intelligence reports.</p>
+        </div>
+        <div class="export-buttons">
+            <button onclick="exportReport('csv')" class="btn-export csv-btn">📥 Export CSV</button>
+            <button onclick="exportReport('pdf')" class="btn-export pdf-btn">📄 Export PDF</button>
+        </div>
+    </div>
+    
+    <div class="analytics-summary-cards">
+        <div class="summary-card">
+            <h4>Total Tasks Completed</h4>
+            <p class="summary-number">24</p>
+        </div>
+        <div class="summary-card">
+            <h4>Productivity Rate</h4>
+            <p class="summary-number">85%</p>
+        </div>
+    </div>
+
+    <div class="charts-grid">
+        <div class="chart-container">
+            <h3>Task Completion Trend (Roll-up Analysis)</h3>
+            <canvas id="trendChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Productivity by Priority (Slice & Dice)</h3>
+            <canvas id="priorityChart"></canvas>
+        </div>
+    </div>
+</div>
 
     <footer>
         <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 10px;">💡 "Pressure Is Privilege"</p>
